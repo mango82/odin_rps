@@ -17,23 +17,21 @@ function getComputerChoice(num) {
 let computerSelection = getComputerChoice()
 
 // Make function playerSelection()
-function playerSelection(str) {
+function getPlayerChoice(str) {
 // ask for user to type rock paper or scissors
     var str = prompt("Type rock paper or scissors.")
 // convert string to all lowercase letters   
     var str = str.toLowerCase()   
-    
+// return converted string if user types rock paper or scissors
         if (str === "rock" || str === "paper" || str === "scissors"){
             return str;
 
         } else{
             alert("You have not chosen rock paper or scissors")
-            playerSelection()
         }
 }
-console.log(playerSelection())
+console.log(getPlayerChoice())
 
-// return converted string if user types rock paper or scissors
 
 // Make function playRound()
 // Use parameters playerSelection and computer Selection
