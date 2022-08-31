@@ -27,7 +27,8 @@ function getPlayerChoice(str) {
             return str;
 
         } else{
-            alert("You have not chosen rock paper or scissors")
+            alert("You have not chosen rock paper or scissors");
+            return getPlayerChoice();
         }
 }
 console.log(getPlayerChoice())
