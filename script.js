@@ -39,26 +39,52 @@ function playRound(playerSelection, computerSelection){
     var computerSelection = getComputerChoice()
 // Define game rules R<P<S<R
         if (playerSelection === computerSelection) {
-            alert("It was a draw! Your opponent chose " + computerSelection)
+            console.log("It was a draw! Your opponent chose " + computerSelection)
+            
         } else if (playerSelection === "rock" && computerSelection === "paper"){
-            alert("You Lose! Paper beats Rock")
+            console.log("You Lose! Paper beats Rock")
+            opponentScore += 1
         } else if (playerSelection === "rock" && computerSelection === "scissors"){
-            alert("You Win! Rock beats Scissors")
+            console.log("You Win! Rock beats Scissors")
+            playerScore += 1
 
         } else if (playerSelection === "scissors" && computerSelection === "paper"){
-            alert("You Win! Scissors beat Paper")
+            console.log("You Win! Scissors beat Paper")
+            playerScore += 1
         } else if (playerSelection === "scissors" && computerSelection === "rock"){
-            alert("You Lose! Rock beats Scissors")
+            console.log("You Lose! Rock beats Scissors")
+            opponentScore += 1
 
         } else if (playerSelection === "paper" && computerSelection === "rock"){
-            alert("You Win! Paper beats Rock")
+            console.log("You Win! Paper beats Rock")
+            playerScore += 1
         } else if (playerSelection === "paper" && computerSelection === "scissors"){
-            alert("You Lose! Scissors beats Paper")
+            console.log("You Lose! Scissors beats Paper")
+            opponentScore += 1
         }
 }
 
-playRound()
+// Define score variables
+let playerScore = 0
+let opponentScore = 0
 
+
+
+  
 // Make function game()
-// Call playRound() inside funcion
-// Use loops to keep score until 5 and declares winner
+function game() {
+// Use loops to keep score until 5 rounds and declares winner
+    for (let i = 1; i<=5; i++) {
+        console.log("Round " + i)
+// Call playRound() inside funcion  
+        playRound()  
+    }
+    if (playerScore === opponentScore) {
+        console.log("Its a draw! The score is: " + playerScore + "-" + opponentScore)
+    } else if (playerScore > opponentScore) {
+        console.log("You Win! The score is: " + playerScore + "-" + opponentScore)
+    } else if (playerScore < opponentScore) {
+        console.log("You Lose! The score is: " + playerScore + "-" + opponentScore)
+    }
+}
+game()
