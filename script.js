@@ -1,8 +1,10 @@
-// Make function getComputerChoice()
+let playerScore = 0
+let opponentScore = 0
+let computerSelection = getComputerChoice()
+game()
+// Gets computer choice through RNG
 function getComputerChoice(num) {
-// Function RNG 0-2 
     num = Math.floor(Math.random()*3);
-// convert to strings rock paper scissors return value
         if (num === 0) {
             return num = "rock"
         }
@@ -13,31 +15,21 @@ function getComputerChoice(num) {
             return num = "scissors"
         }
 }
-// Variable computerSelection =  getComputerChoice
-let computerSelection = getComputerChoice()
-
-// Make function playerSelection()
+// Gets player choice through prompt
 function getPlayerChoice(str) {
-// ask for user to type rock paper or scissors
     var str = prompt("Type rock paper or scissors.")
-// convert string to all lowercase letters   
     var str = str.toLowerCase()   
-// return converted string if user types rock paper or scissors
         if (str === "rock" || str === "paper" || str === "scissors"){
             return str;
-
         } else{
             alert("You have not chosen rock paper or scissors");
             return getPlayerChoice();
         }
 }
-
-// Make function playRound()
+// Finds result of round and updates variables
 function playRound(playerSelection, computerSelection){
-// Use parameters playerSelection and computer Selection
     var playerSelection = getPlayerChoice()
     var computerSelection = getComputerChoice()
-// Define game rules R<P<S<R
         if (playerSelection === computerSelection) {
             console.log("It was a draw! Your opponent chose " + computerSelection)
             
@@ -63,20 +55,10 @@ function playRound(playerSelection, computerSelection){
             opponentScore += 1
         }
 }
-
-// Define score variables
-let playerScore = 0
-let opponentScore = 0
-
-
-
-  
-// Make function game()
-function game() {
 // Use loops to keep score until 5 rounds and declares winner
+function game() {
     for (let i = 1; i<=5; i++) {
         console.log("Round " + i)
-// Call playRound() inside funcion  
         playRound()  
     }
     if (playerScore === opponentScore) {
@@ -87,4 +69,3 @@ function game() {
         console.log("You Lose! The score is: " + playerScore + "-" + opponentScore)
     }
 }
-game()
