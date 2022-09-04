@@ -31,30 +31,30 @@ let scissors = document.getElementById("scissors")
 
 // Finds result of round and updates variables
 function playRound(playerSelection, computerSelection){
-
+let result = document.getElementById("result")
     var computerSelection = getComputerChoice()
         if (playerSelection === computerSelection) {
-            console.log("It was a draw! Your opponent chose " + computerSelection)
+            result.innerHTML = ("It was a draw! Your opponent chose " + computerSelection)
             
         } else if (playerSelection === "rock" && computerSelection === "paper"){
-            console.log("You Lose! Paper beats Rock")
+            result.innerHTML = ("You Lose! Paper beats Rock")
             opponentScore += 1
         } else if (playerSelection === "rock" && computerSelection === "scissors"){
-            console.log("You Win! Rock beats Scissors")
+            result.innerHTML = ("You Win! Rock beats Scissors")
             playerScore += 1
 
         } else if (playerSelection === "scissors" && computerSelection === "paper"){
-            console.log("You Win! Scissors beat Paper")
+            result.innerHTML = ("You Win! Scissors beat Paper")
             playerScore += 1
         } else if (playerSelection === "scissors" && computerSelection === "rock"){
-            console.log("You Lose! Rock beats Scissors")
+            result.innerHTML = ("You Lose! Rock beats Scissors")
             opponentScore += 1
 
         } else if (playerSelection === "paper" && computerSelection === "rock"){
-            console.log("You Win! Paper beats Rock")
+            result.innerHTML = ("You Win! Paper beats Rock")
             playerScore += 1
         } else if (playerSelection === "paper" && computerSelection === "scissors"){
-            console.log("You Lose! Scissors beats Paper")
+            result.innerHTML = ("You Lose! Scissors beats Paper")
             opponentScore += 1
         }
 }
