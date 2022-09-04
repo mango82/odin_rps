@@ -22,18 +22,9 @@ let scissors = document.getElementById("scissors")
 let score = document.getElementById("score")
 score.innerHTML = "Your Score: " + playerScore + " Opponent Score: " + opponentScore
 // Add DOM events to buttons
-    rock.addEventListener("click", function() {
-        playRound("rock", computerSelection)
-        updateScore()
-    })
-    scissors.addEventListener("click", function() {
-        playRound("paper", computerSelection)
-        updateScore()
-    })
-    paper.addEventListener("click", function() {
-        playRound("scissors", computerSelection)
-        updateScore()
-    })
+    rock.addEventListener("click", function() {chooseRock()})
+    scissors.addEventListener("click", function() {choosePaper()})
+    paper.addEventListener("click", function() {chooseScissors()})
 // Display and update score in HTML
 function updateScore() {
     if (playerScore === 5) {
@@ -44,6 +35,25 @@ function updateScore() {
     }
     else {
         score.innerHTML = "Your Score: " + playerScore + " Opponent Score: " + opponentScore
+    }
+}
+// Add functions to 
+function chooseRock() {
+    if (playerScore < 5 && !(opponentScore === 5) || opponentScore < 5 && !(playerScore === 5)) {
+        playRound("rock", computerSelection)
+        updateScore()
+    }
+}
+function choosePaper() {
+    if (playerScore < 5 && !(opponentScore === 5) || opponentScore < 5 && !(playerScore === 5)){
+        playRound("paper", computerSelection)
+        updateScore()
+    }
+}
+function chooseScissors() {
+    if (playerScore < 5 && !(opponentScore === 5) || opponentScore < 5 && !(playerScore === 5)) {
+        playRound("scissors", computerSelection)
+        updateScore()
     }
 }
 
