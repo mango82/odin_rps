@@ -1,7 +1,6 @@
 let playerScore = 0
 let opponentScore = 0
 let computerSelection = getComputerChoice()
-game()
 // Gets computer choice through RNG
 function getComputerChoice(num) {
     num = Math.floor(Math.random()*3);
@@ -15,20 +14,24 @@ function getComputerChoice(num) {
             return num = "scissors"
         }
 }
-// Gets player choice through prompt
-function getPlayerChoice(str) {
-    var str = prompt("Type rock paper or scissors.")
-    var str = str.toLowerCase()   
-        if (str === "rock" || str === "paper" || str === "scissors"){
-            return str;
-        } else{
-            alert("You have not chosen rock paper or scissors");
-            return getPlayerChoice();
-        }
-}
+// Gets player choice through button
+let rock = document.getElementById("rock")
+let paper = document.getElementById("paper")
+let scissors = document.getElementById("scissors")
+
+    rock.addEventListener("click", function() {
+        playRound("rock", computerSelection)
+    })
+    scissors.addEventListener("click", function() {
+        playRound("paper", computerSelection)
+    })
+    paper.addEventListener("click", function() {
+        playRound("scissors", computerSelection)
+    })
+
 // Finds result of round and updates variables
 function playRound(playerSelection, computerSelection){
-    var playerSelection = getPlayerChoice()
+
     var computerSelection = getComputerChoice()
         if (playerSelection === computerSelection) {
             console.log("It was a draw! Your opponent chose " + computerSelection)
@@ -54,4 +57,18 @@ function playRound(playerSelection, computerSelection){
             console.log("You Lose! Scissors beats Paper")
             opponentScore += 1
         }
+}
+// Use loops to keep score until 5 rounds and declares winner
+function game() {
+    for (let i = 1; i<=5; i++) {
+        console.log("Round " + i)
+        playRound()  
+    }
+    if (playerScore === opponentScore) {
+        console.log("Its a draw! The score is: " + playerScore + "-" + opponentScore)
+    } else if (playerScore > opponentScore) {
+        console.log("You Win! The score is: " + playerScore + "-" + opponentScore)
+    } else if (playerScore < opponentScore) {
+        console.log("You Lose! The score is: " + playerScore + "-" + opponentScore)
+    }
 }
