@@ -18,16 +18,34 @@ function getComputerChoice(num) {
 let rock = document.getElementById("rock")
 let paper = document.getElementById("paper")
 let scissors = document.getElementById("scissors")
-
+// Define Score
+let score = document.getElementById("score")
+score.innerHTML = "Your Score: " + playerScore + " Opponent Score: " + opponentScore
+// Add DOM events to buttons
     rock.addEventListener("click", function() {
         playRound("rock", computerSelection)
+        updateScore()
     })
     scissors.addEventListener("click", function() {
         playRound("paper", computerSelection)
+        updateScore()
     })
     paper.addEventListener("click", function() {
         playRound("scissors", computerSelection)
+        updateScore()
     })
+// Display and update score in HTML
+function updateScore() {
+    if (playerScore === 5) {
+        score.innerHTML = "You Win, Final Score: " + playerScore + " : " + opponentScore
+    }
+    else if (opponentScore === 5) {
+        score.innerHTML = "You Lose, Final Score: " + playerScore + " : " + opponentScore
+    }
+    else {
+        score.innerHTML = "Your Score: " + playerScore + " Opponent Score: " + opponentScore
+    }
+}
 
 // Finds result of round and updates variables
 function playRound(playerSelection, computerSelection){
@@ -57,18 +75,4 @@ let result = document.getElementById("result")
             result.innerHTML = ("You Lose! Scissors beats Paper")
             opponentScore += 1
         }
-}
-// Use loops to keep score until 5 rounds and declares winner
-function game() {
-    for (let i = 1; i<=5; i++) {
-        console.log("Round " + i)
-        playRound()  
-    }
-    if (playerScore === opponentScore) {
-        console.log("Its a draw! The score is: " + playerScore + "-" + opponentScore)
-    } else if (playerScore > opponentScore) {
-        console.log("You Win! The score is: " + playerScore + "-" + opponentScore)
-    } else if (playerScore < opponentScore) {
-        console.log("You Lose! The score is: " + playerScore + "-" + opponentScore)
-    }
 }
