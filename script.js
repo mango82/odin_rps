@@ -55,17 +55,3 @@ function playRound(playerSelection, computerSelection){
             opponentScore += 1
         }
 }
-// Use loops to keep score until 5 rounds and declares winner
-function game() {
-    for (let i = 1; i<=5; i++) {
-        console.log("Round " + i)
-        playRound()  
-    }
-    if (playerScore === opponentScore) {
-        console.log("Its a draw! The score is: " + playerScore + "-" + opponentScore)
-    } else if (playerScore > opponentScore) {
-        console.log("You Win! The score is: " + playerScore + "-" + opponentScore)
-    } else if (playerScore < opponentScore) {
-        console.log("You Lose! The score is: " + playerScore + "-" + opponentScore)
-    }
-}
