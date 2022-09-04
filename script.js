@@ -37,7 +37,7 @@ function updateScore() {
         score.innerHTML = "Your Score: " + playerScore + " Opponent Score: " + opponentScore
     }
 }
-// Add functions to 
+// Add functions to stop when a player wins
 function chooseRock() {
     if (playerScore < 5 && !(opponentScore === 5) || opponentScore < 5 && !(playerScore === 5)) {
         playRound("rock", computerSelection)
